@@ -1,27 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Karla:ital@0;1&family=Overpass:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&family=Overpass:wght@400;700&display=swap');
 
 /*
-My 11th attempted challenge on frontendmentor.io (HTML and CSS)
-
-What I learned
-1) Getting more familiar implementing multiple backgrounds
-
-Continued development/Short falls:
-
-1) Forgot to implement "hover states". My apologies.
-
 The designs were created to the following widths:
 - Mobile: 375px
 - Desktop: 1440px
 
+    background: url(./images/illustration-woman-online-mobile.svg), url(./images/bg-pattern-mobile.svg), var(--soft-violet);
+    background-repeat: no-repeat, no-repeat;
+    background-size:50%,auto;
+    background-position: 6rem 1rem, 4rem 5rem;
+
+
+Use details tag to do this natively! Summary for question. P for answer *************************************
+
 */
+
 :root {
-    --orange: hsl(25, 97%, 53%); /*Primary*/
-    --white: hsl(0, 0%, 100%); /*Neutral*/
-    --light-grey: hsl(217, 12%, 63%); /*Neutral*/
-    --medium-grey: hsl(216, 12%, 54%); /*Neutral*/
-    --dark-blue: hsl(213, 19%, 18%); /*Neutral*/
-    --very-dark-blue: hsl(216, 12%, 8%); /*Neutral*/
+    --very-dark-desaturated-blue: hsl(238, 29%, 16%); /*Primary Text*/
+    --soft-red: hsl(14, 88%, 65%); /*Primary Text*/
+    --soft-violet: hsl(273, 75%, 66%); /*Gradient Background gradient*/
+    --soft-blue: hsl(240, 73%, 65%); /*Gradient Background gradient*/
+    --very-dark-grayish-blue: hsl(237, 12%, 33%); /*Neutral Text*/
+    --dark-grayish-blue: hsl(240, 6%, 50%); /*Neutral Text*/
+    --light-grayish-blue: hsl(240, 5%, 91%); /*Dividers*/
       }
 *{
     box-sizing: border-box;
@@ -36,129 +37,117 @@ html{
     align-items: center;
     height:100%;
     width: 100%;
-    font-family: "Overpass";
+    min-width: 22.5rem;
+    font-family: "Kumbh Sans";
+    background-color: var(--soft-violet);
     }
-body{
-    background-color: var(--very-dark-blue);
-}
 main{
-    display: flex;
-    flex-flow: column;
-    justify-content: center; 
-    align-items: center; 
-    width:20rem;
-    height: auto;
-    background-color: var(--dark-blue);
+    width: 80%;
+    max-height: 30rem;
+    margin: auto auto;
+    display:grid;
+    grid-template: 1fr 3fr/auto;
+    grid-template-areas:
+    "head-empty"
+    "faq";
+    background-color: white;
     border-radius:1rem;
-}
-.rating-state{
     padding: 1rem 1rem;
-    display: flex;
-    flex-flow: column;
-    gap:0.5rem;
 }
-.rating-state-header{
-    display: flex;
-    flex-flow: column;
-    gap:1rem;
+.woman{
+    position: absolute;
+    left: 5rem;
+    top: 0rem;
+    z-index: 3;
+    width: 55%;
 }
-.star{
-    background-color: hsl(240, 2%, 25%);
-    width:1.5rem;
-    height: 1.5rem;
-    border-radius:50%;
-    text-align: center;
+.pattern{
+    position: absolute;
+    left: 4rem; 
+    top: 6rem;
+    z-index: 2;
 }
-.star-image{
-    border-radius:50%;
-    width:80%
+article{
+    grid-area: head-empty;
 }
-.how{
-    font-size: 1.4rem;
-    color:var(--white);
+section{
+    grid-area: faq;
+    display: block;
 }
-.please{
+h1{
+    text-align: center;  
+    font-size: 1.2rem;
+}
+.query{
     font-size: 0.8rem;
-    color:var(--light-grey);
 }
-.form{
-    display: flex;
-    flex-flow: column;
-    align-items: center; 
-    gap:1rem;
+.bullet{
+    border-bottom: 1px solid var(--light-grayish-blue);
+    width:100%;
 }
-.rating-div{
-    font-size: 1rem;
-    color:var(--light-grey);
-    display: flex;
-    flex-flow: row;
-    gap:2rem;
+span{
+    float: right;
 }
-input{
-   display: none;
+.question{
+    font-size: 1.2rem;
 }
-label{
-    color: var(--light-grey);
-    background-color: hsl(240, 2%, 25%);
-    border-radius:50%;
-    width: 2rem;
-    height: 2rem;
-    text-align: center;
-    padding-top: 0.4rem;
-}
-label:hover{
-    background-color: var(--orange);
+.question:hover{
+    color: var(--soft-red);
     cursor: pointer;
-}
-button{
-    width: 90%;
-    font-size: 1rem;
-    background-color: var(--orange);
-    color:var(--white);
-    border-radius:1rem;
-    padding: 0.5rem 2rem;
-    font-weight: bold;
-    border: none;
-}
-button:hover{
-    background-color: var(--white); 
-    color:var(--orange);
-    cursor: pointer;
-}
-.thankyou-state{
-    padding: 1rem 1rem;
-    display: flex;
-    flex-flow: column;
-    gap:1rem;
-    justify-content: center; 
-    align-items: center; 
-}
-.handset{
-    width:40%
-}
-.result{
-    font-size: 0.8rem;
-    color:var(--orange);
-    background-color: hsl(240, 2%, 25%);
-    padding: 0.5rem 1rem;
-    border-radius:1rem;
-}
-.thank{
-    font-size: 1.4rem;
-    color:var(--white);
-}
-.appreciate{
-    font-size: 0.8rem;
-    color:var(--light-grey);
 }
 footer { 
-    text-align: center; 
     font-size: 0.7rem;
-    color:var(--white);
+    text-align: center; 
 }
-footer a{
-    color:var(--white);
+footer a { 
+    color: hsl(228, 45%, 44%); 
 }
 .hide {
     display: none;
   }
+.block{
+    display: block;
+}
+.bold{
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+.rotate{
+    transform: rotate(180deg);
+}
+@media (min-width: 31.25em) {
+    main{
+        grid-template: auto/1fr 1fr;
+        grid-template-areas:
+        "head-empty faq";
+        min-height: 40rem;
+    }
+    .woman{
+        width: 40%;
+        top: 8rem;
+    }
+    .pattern{
+        left: -3rem; 
+        top: 25rem;
+        width:50%;
+    }
+    h1{
+        font-size: 1.9rem; 
+    }
+    .question{
+        font-size: 1.7rem;
+    }
+    .answer{
+        font-size: 1rem;
+    }
+    .bold{
+        font-size: 1.2rem;
+    }
+    section{
+        margin: auto auto;
+    }
+    .bullet{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    }
+}
